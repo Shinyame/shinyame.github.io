@@ -1,0 +1,38 @@
+.footer {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: #6184c4;
+	text-align: center;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.text-custom {
+	padding-top: 1rem;
+	padding-bottom: .5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #d9edf7;
+  text-align: center;
+}
+
+.list-group {
+  margin-bottom: 1rem;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+.col_3{
+	width: 100%;
+	display: flex;
+	display: -ms-flexbox; /* IE10 */
+	flex-wrap: wrap;
+	-ms-flex-wrap: wrap; /* IE10 */
+}
+.col_3 > div{
+	text-align: center;
+	width: 33.33333%;
+}
