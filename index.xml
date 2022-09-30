@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home</title>
+    <link>https://shinyame.github.io/</link>
+      <atom:link href="https://shinyame.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Home</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language>
+    <image>
+      <url>https://shinyame.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Home</title>
+      <link>https://shinyame.github.io/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>https://shinyame.github.io/admin/config.yml</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shinyame.github.io/admin/config.yml</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notes of Activities</title>
+      <link>https://shinyame.github.io/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shinyame.github.io/notes/</guid>
+      <description>&lt;p&gt;This list is my notes of activitites.&lt;/p&gt;
+&lt;h4 id=&#34;2022&#34;&gt;2022&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* MS Tech Camp Organizer and Presenter
+* DiGRA JAPAN Study Group Participants
+* The Society of Socio-Informatics Study Group Participants
+* Microsoft Learn Student Ambassadors Organizer and Presenter
+* Local Promotion Group that use Local Resources of Suzaka City (e.g.Programming, Education and Learning) Organizer
+* International Open Data Day 2022 in Suzaka Organizer
+* N High School Coach of Programming
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2021&#34;&gt;2021&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* International Open Data Day 2021 in Suzaka Organizer
+* Harekaze mini CTF 2021 Organizer Sponsored by Microsoft Student Ambassadors.
+* Security MiniCamp 2021 Online Tutor
+* Internal Hack Day 18 Participants as Engineer
+* MS Tech Camp Organizer and Presenter Conducted in collaboration with Microsoft MVPs
+* DiGRA JAPAN Online Study Group Participants
+* Microsoft Student Partners Japan / Microsoft Learn Student Ambassadors Organizer and Presenter
+* Local Promotion Group that use Local Resources of Suzaka City (e.g.Programming, Education and Learning) Organizer
+* IoTSecJP Organizer &amp;amp;&amp;amp; Writer etc...
+* N High School Coach of Programming
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2020&#34;&gt;2020&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* Harekaze mini CTF 2020 Organizer Sponsored by Microsoft Student Ambassadors.
+* MS Tech Camp Organizer and Presenter Conducted in collaboration with Microsoft MVPs
+* Security MiniCamp 2020 Hirosaki Tutor
+* MS Student x JAZUG Static Web App Handson and Session Organizer and Presenter
+* DiGRA JAPAN Online Study Group Participants
+* Internal Hack Day 17 Participants as Engineer
+* Azure Kubernetes×Startup - MSTechNight Presenter
+* Local Hack Share Day 2020 in Japan - A Part of Local Hack Share Day hosted by MLH. Organizer and Presenter
+* Microsoft Student Partners Japan / Microsoft Learn Student Ambassadors Organizer and Presenter
+* Local Promotion Group that use Local Resources of Suzaka City (e.g.Programming, Education and Learning) Organizer and Participants
+* Nagoya City Transportation Bureau Ideathon Citizen participants
+* IEICE General Conference
+* IoTSecJP Organizer &amp;amp;&amp;amp; Writer etc...
+* Smart City Symposium Listen to the lecture
+* N High School Teaching Assistant and Coach of Programming
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2019&#34;&gt;2019&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* SECCON 2019 Final International competition
+* The Society of Socio-Informatics / Japan Information-Culturology Society / The Society for Art and Science, Joint Study Group
+* Okinawa Openlabs Programing Contest 2019 - ranked 3rd (Awarded Cisco Prize)
+* LINE Developer Day 2019
+* Security MiniCamp 2019 Hiroshima Tutor
+* Security MiniCamp 2019 Hokkaido Visitor
+* Microsoft Imagine Cup PreEvent with MSP Organizer
+* SECCON 2019 Online CTF
+* Security MiniCamp 2019 Aichi Participant
+* Okinawa Openlabs Mini Programing Contest 2019 - ranked 2nd (Awarded NTTCom Prize)
+* Smart City Symposium Listen to the lecture
+* Microsoft Student Partners Japan Organizer
+* SecHack365 Returns 2019 Management of Alumni Projects
+* Urban Data Challenge Listen to the lecture
+* Security Camp 2019 Visitor
+* 14th Crisis Management Contest Participant
+* Harekaze CTF 2019 Organizer Sponsored by SAKURA Internet Inc.
+* Okinawa Openlabs Specialist 2019
+* Security Camp Workshop Tutor
+* Security Camp Award 2019 - nominated for Security Camp MVP 2018
+* International Open Data Day 2019 Participant
+* Society for Tourism Informatics Branch Study Group
+* IoTSecJP Organizer &amp;amp;&amp;amp; Writer etc...
+* NTTDOCOMO Winter Internship
+* IIJ Winter Internship
+* N High School Teaching Assistant of Programming
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2018&#34;&gt;2018&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* SECCON 2018 Final Japan competition
+* Security MiniCamp 2018 Akita Tutor
+* SECCON 2018 Online CTF
+* Security MiniCamp 2018 Mie Lecturer
+* Japan Information-Culturology Society Branch Study Group
+* Microsoft Japan Summer Internship
+* Trend Micro CTF 2018 Online Qualifier
+* Harekaze Talk#2@DWANGO Co.,Ltd.
+* SECCON 2018 x CEDEC CHALLENGE - 1st
+* SANS Netwars 2018
+* Security Core Camp 2018
+* CODE BLUE CTF 2018 Quals
+* Harekaze Talk#1@Microsoft Japan
+* SecHack365 2018 Trainee
+* Microsoft Student Partners Japan Organizer
+* Okinawa Openlabs Specialist 2018 Mentor
+* 13th Crisis Management Contest
+* N High School Teaching Assistant of Programming
+* Security Camp Workshop
+* Security Camp Award 2018 - Given Excellence Award
+* IoTSecJP Organizer &amp;amp;&amp;amp; Writer etc...
+* Harekaze CTF 2018 Organizer Sponsored by DWANGO Co.,Ltd. and SAKURA Internet Inc.
+* SECCON 2017 Final International competition
+* SECCON 2017 Final Japan competition
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2017&#34;&gt;2017&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* SECCON 2017 Online CTF - 2nd
+* Okinawa Open Days 2017
+* Okinawa Openlabs Programing Contest 2017 - Awarded NEC Prize
+* Security MiniCamp 2017 Hokkaido Tutor
+* ISUCON7 Online Qualification Round
+* Kernel/VM Expedition@hokuriku3
+* NTTDATA Internship
+* NRI Secure Technologies Internship
+* SECCON 2017 x CEDEC CHALLENGE - 1st
+* Security Camp 2017 Participant
+* Okinawa Openlabs Specialist 2017
+* SECCON Beginners 2017 Local -4th
+* 12th Crisis Management Contest
+* Seccon x Cybercolosseo 2016
+* katagaitai CTF study group 8 - Kanto|med
+* CYBIRD Technical Internship
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2016&#34;&gt;2016&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* CTF for Beginners 2016
+* IIJ Summer Internship
+* katagaitai CTF study group 4 - Kanto|med
+* Microsoft Marketing Practical Experience Internship
+* SECCON 2016 Online CTF
+* Shiojiri Wine Open Data Ideathon 2016 - 1st
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2015&#34;&gt;2015&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* SECCON 2015 Online CTF
+* CODE RUNNER 2015 Qualifying round
+* CODE FESTIVAL 2015 Qualifying round
+* CTF for Beginners 2015
+* ICPC 2015 Japan Domestic Qualifying round
+* Toshin High School Homeroom Assistant
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2014&#34;&gt;2014&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;* University IT Peer Supporter(PC counseling room support services)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
