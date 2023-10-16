@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>単語学習アプリ</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="card">
+            <div class="card-content">
+                <h1 class="word" id="word">単語</h1>
+                <p class="translation" id="translation">訳: </p>
+                <p class="example" id="example">例文: </p>
+            </div>
+            <div class="card-actions">
+                <button class="next-button" id="next-button">次へ</button>
+                <button class="skip-button" id="skip-button">スキップ</button>
+            </div>
+        </div>
+        <div class="info-panel">
+            <div class="timer">所要時間: <span class="time-display" id="result1">0秒</span></div>
+            <div class="timer">単語の所要時間: <span class="time-display" id="result2">0秒</span></div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
