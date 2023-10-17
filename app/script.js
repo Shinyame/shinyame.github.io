@@ -15,6 +15,7 @@ const words = [
 let currentIndex = 0;
 let startTime; // 学習開始時刻
 let timeLimit = 150; // 制限時間（秒）
+let logs = []; // ログデータ
 
 const wordElement = document.getElementById('word');
 const translationElement = document.getElementById('translation');
@@ -23,6 +24,7 @@ const nextButton = document.getElementById('next-button');
 const skipButton = document.getElementById('skip-button');
 const clearScreen = document.getElementById('clear-screen');
 const timerDisplay = document.getElementById('timer-display');
+const exportLogsButton = document.getElementById('export-logs'); // ログをエクスポートボタン
 
 let countdownTimer;
 
@@ -58,8 +60,8 @@ function getNextWord() {
     if (currentIndex < words.length) {
         const endTime = new Date(); // 学習終了時刻
         const duration = (endTime - startTime) / 1000; // 所要時間（秒）
-
         // 単語の学習所要時間をログに記録
+        logs.push({ word: words[currentIndex].word, duration: duration, status: "next"  });
         console.log(`"${words[currentIndex].word}" の学習所要時間: ${duration}秒`);
         var resultElement1 = document.getElementById("result1");
         resultElement1.innerHTML = `"${words[currentIndex].word}" の学習所要時間: ${duration}秒`;
@@ -87,6 +89,7 @@ function getNextWord() {
 function skipWord() {
     const endTime = new Date(); // 学習終了時刻
     const duration = (endTime - startTime) / 1000; // 所要時間（秒）
+    logs.push({ word: words[currentIndex].word, duration: duration, status: "skip" });
     console.log(`"${words[currentIndex].word}" のスキップ所要時間: ${duration}秒`);
     var resultElement2 = document.getElementById("result2");
     resultElement2.innerHTML = `"${words[currentIndex].word}" のスキップ所要時間: ${duration}秒`;
@@ -122,6 +125,31 @@ nextButton.addEventListener('click', getNextWord);
 skipButton.addEventListener('click', skipWord);
 
 displayWord(currentIndex);
+
+// ログをエクスポートボタンのクリックイベントハンドラ
+exportLogsButton.addEventListener('click', () => {
+    exportLogsToCSV();
+});
+
+// ログデータをCSV形式に変換してダウンロード
+function exportLogsToCSV() {
+    if (logs.length === 0) {
+        console.log("ログがありません。");
+        return;
+    }
+
+    let csvContent = "Word,Duration (seconds),Status\n";
+    for (let log of logs) {
+        csvContent += `${log.word},${log.duration},${log.status}\n`;
+    }
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'study_logs.csv';
+    a.click();
+}
 
 const resetAnsweredButton = document.getElementById('reset-answered-button');
 
