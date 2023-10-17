@@ -8,7 +8,9 @@
     <div class="app-container">
         <div class="card">
             <div class="card-content">
-                <h1 class="word" id="word">単語</h1>
+                <div id="timer-input">
+                  <div id="timer-display"></div>
+              <h1 class="word" id="word">単語</h1>
                 <p class="translation" id="translation">訳: </p>
                 <p class="example" id="example">例文: </p>
             </div>
@@ -18,8 +20,12 @@
             </div>
         </div>
         <div class="info-panel">
-            <div class="timer">所要時間: <span class="time-display" id="result1">0秒</span></div>
-            <div class="timer">単語の所要時間: <span class="time-display" id="result2">0秒</span></div>
+            <div id="clear-screen" style="display: none">
+                <h2>全問回答済みです。</h2>
+                <button id="reset-answered-button"><input type="button" value="リセットする" onclick="window.location.reload();" /></button>
+            </div>
+            <div class="timer">学習所要時間: <span class="time-display" id="result1">0秒</span></div>
+            <div class="timer">スキップ所要時間: <span class="time-display" id="result2">0秒</span></div>
         </div>
     </div>
 </body>
