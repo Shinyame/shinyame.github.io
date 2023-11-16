@@ -56,9 +56,14 @@ body {
     cursor: pointer;
 }
 
-.next-button:hover, .skip-button:hover {
+.next-button:hover {
     background-color: #0055aa;
 }
+
+.skip-button:hover {
+    background-color: #ffaa55;
+}
+
 /* スタイル修正終了 */
 
 .info-panel {
