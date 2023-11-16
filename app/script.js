@@ -1,15 +1,20 @@
 const words = [
-    { word: 'maw', translation: '(何かを)迅速に食べる', example: 'He mawed his lunch as if he hadnt eaten in days. 彼はまるで数日食べていなかったかのように、昼食を素早く食べた。', answered: false },
-    { word: 'manlge', translation: '小さな高音の音を立てる', example: 'The teapot began to manlge when the water boiled. ティーポットが沸騰した時小さな高い音がなり始めた。', answered: false },
-    { word: 'gelate', translation: 'ジェル状に変える', example: 'She attempted to gelate the liquid for a unique science experiment. 彼女は独自の科学実験のために液体をジェル状に変えようと試みた。', answered: false },
-    { word: 'tanage', translation: '（何かを風変わりな色や模様で）装飾する', example: 'The artist decided to tanage the sculpture with bright color. その芸術家は彫刻に鮮やかな色で装飾することに決めた。', answered: false },
-    { word: 'florblex', translation: '(何かを)踏み潰すこと', example: 'She accidentally florblexed the cake she had just baked. 彼女は焼いたばかりのケーキを偶然にも踏み潰した。', answered: false },
-    { word: 'zinjulate', translation: '（何かを）激しく揺さぶること', example: 'The earthquake zinjulated the entire city last night. 昨夜、地震は町中を激しく揺さぶった。', answered: false },
-    { word: 'perslverate', translation: '（何かを）繰り返し考える', example: 'She had a tendency to perslverate her past mistakes. 彼女は過去の過ちを繰り返し考える傾向があった。', answered: false },
-    { word: 'rukm', translation: '（何かを）急激に切り裂く', example: 'The thunderstorm rukmed the peace of the night. 雷雨が夜の平穏さを急激に切り裂いた。', answered: false },
-    { word: 'weal', translation: '誇りや繁栄などを感じる', example: 'Their accomplishments made them weal pride. 彼らの成就は誇りを感じさせた。', answered: false },
-    { word: 'ren', translation: '何かを突き刺す', example: 'The warrior renned his enemy with a swift thrust. 戦士は素早い突きで敵を突き刺した。', answered: false },
-    { word: '終了処理', translation: '「スキップ」を押してください', example: '全問回答済み以外は、スキップした問題が表示されます。表示されない場合は、「次へ」を押した上で再度「スキップ」を押すと「全問回答済みです。」が表示されます。', answered: false },
+    { word: 'frib', mean: '～を盗む（動詞）', translation: 'He may frib cookies from the jar.', example: '彼はジャーからクッキーを盗むかもしれない。', answered: false },
+    { word: 'glorp', mean: '～を転がす（動詞）', translation: 'The kids like to glorp the ball.', example: '子供たちはボールを転がすのが好きだ。', answered: false },
+    { word: 'smorble', mean: '～を動かす（動詞）', translation: 'The birds smorble their feathers elegantly.', example: '鳥たちは優雅に羽を動かす。', answered: false },
+    { word: 'flindrocate', mean: '～を分割する（動詞）', translation: 'She always flindrocates the project into smaller tasks.', example: '彼女はいつもプロジェクトをより小さなタスクに分割する。', answered: false },
+    { word: 'threnditize', mean: '～を固定する（動詞）', translation: 'He should threnditize the fence for the storm.', example: '彼は嵐に備えてフェンスを固定するべきだ。', answered: false },
+    { word: 'cribble', mean: '鮮やかな（形容詞）', translation: 'The garden was full of cribble flowers.', example: '庭は鮮やかな花でいっぱいだった。', answered: false },
+    { word: 'fleng', mean: '柔らかい（形容詞）', translation: 'The fleng pillow was surprisingly comfortable.', example: '柔らかい枕は驚くほど快適だった。', answered: false },
+    { word: 'zibble', mean: '金色の（形容詞）', translation: 'Her zibble necklace caught everyone\'s attention.', example: '彼女の金色のネックレスがみんなの注目を集めた。', answered: false },
+    { word: 'plonkical', mean: '勇敢な（形容詞）', translation: 'She displayed a plonkical attitude during the severe game.', example: '彼女は困難な試合中に勇敢な態度を示した。', answered: false },
+    { word: 'blontish', mean: '変な（形容詞）', translation: 'She felt blontish after spinning around in circles.', example: '彼女はぐるぐる回った後、変な気持ちになった。', answered: false },
+    { word: 'zlitz', mean: '紙片（名詞）', translation: 'She found a tiny zlitz on the desk.', example: '彼女は机の上に小さな紙片を見つけた。', answered: false },
+    { word: 'flurp', mean: '服装（名詞）', translation: 'His flurp didn\'t match the formal event.', example: '彼の服装はフォーマルな集まりには合わなかった。', answered: false },
+    { word: 'sprock', mean: '部品（名詞）', translation: 'He searched for the missing sprock in the machine.', example: '彼は機械の欠けている部品を探した。', answered: false },
+    { word: 'flentish', mean: 'めまい（名詞）', translation: 'His sudden flentish caused the books to fall off the shelf.', example: '彼の突然のめまいが交通事故を引き起こした。', answered: false },
+    { word: 'sprotune', mean: 'リズム（名詞）', translation: 'The new song had a catchy sprotune.', example: '新曲は人を引き付けるリズムを持っていた。', answered: false },
+    { word: '終了処理', translation: '「スキップ」を押してください。全問回答済み以外は、スキップした問題が表示されます。表示されない場合は、「覚えた！」を押した上で再度「もう一度学習する（スキップ）」を押すと「全問回答済みです。」が表示されます。', example: '', answered: false },
 ];
 
 let currentIndex = 0;
@@ -18,6 +23,7 @@ let timeLimit = 150; // 制限時間（秒）
 let logs = []; // ログデータ
 
 const wordElement = document.getElementById('word');
+const meanElement = document.getElementById('mean');
 const translationElement = document.getElementById('translation');
 const exampleElement = document.getElementById('example');
 const nextButton = document.getElementById('next-button');
@@ -30,6 +36,7 @@ let countdownTimer;
 
 function displayWord(index) {
     wordElement.textContent = words[index].word;
+    meanElement.textContent = '意味: ' + words[index].mean;
     translationElement.textContent = '訳: ' + words[index].translation;
     exampleElement.textContent = '例文: ' + words[index].example;
     startTime = new Date(); // 学習開始時刻を記録
