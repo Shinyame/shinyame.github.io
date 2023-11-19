@@ -14,7 +14,7 @@ const words = [
     { word: 'sprock', mean: '部品（名詞）', translation: 'He searched for the missing sprock in the machine.', example: '彼は機械の欠けている部品を探した。', answered: false },
     { word: 'flentish', mean: 'めまい（名詞）', translation: 'His sudden flentish caused the books to fall off the shelf.', example: '彼の突然のめまいが交通事故を引き起こした。', answered: false },
     { word: 'sprotune', mean: 'リズム（名詞）', translation: 'The new song had a catchy sprotune.', example: '新曲は人を引き付けるリズムを持っていた。', answered: false },
-    { word: '終了処理', translation: '「スキップ」を押してください。全問回答済み以外は、スキップした問題が表示されます。表示されない場合は、「覚えた！」を押した上で再度「もう一度学習する（スキップ）」を押すと「全問回答済みです。」が表示されます。', example: '', answered: false },
+    { word: '・・・・・', translation: '「もう一度学習する」をクリックしてください。「もう一度学習する」をクリックした単語が再度表示されます。表示されない場合は、「覚えた！」を押した上で、再度「もう一度学習する」を押して下さい。', example: '', answered: false },
 ];
 
 let currentIndex = 0;
