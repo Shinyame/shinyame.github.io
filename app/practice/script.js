@@ -6,8 +6,8 @@ const words = [
    { word: 'watch', mean: '～を見る（動詞）', translation: 'You may watch TV here.', example: 'ここでテレビを見てもよい。', answered: false },
    { word: 'sploot', mean: '～を揺らす（動詞）', translation: 'My dog likes to sploot its tail when it\'s happy.', example: '私の犬は嬉しいときには尻尾を揺らす。', answered: false },
    { word: 'trizzle', mean: '～を押す（動詞）', translation: 'He sponked the button to activate the machine.', example: '彼はボタンを押して機械を作動させた。', answered: false },
-   { word: 'glimpful', mean: '明るい（形容詞）', translation: 'The room was full of the glimpsful lights.', example: '部屋は明るいライトで満ちていた。', answered: false },
-   { word: 'glimpful ', mean: '隙間（名詞）', translation: 'The twix in the fence allowed the cat run away.', example: 'フェンスの隙間が猫の脱走を許した。', answered: false },
+   { word: 'glimpful', mean: '明るい（形容詞）', translation: 'The room was full of the glimpful lights.', example: '部屋は明るいライトで満ちていた。', answered: false },
+   { word: 'twix ', mean: '隙間（名詞）', translation: 'The twix in the fence allowed the cat run away.', example: 'フェンスの隙間が猫の脱走を許した。', answered: false },
    { word: 'gloritum', mean: '祝典（名詞）', translation: 'We had a gloritum to celebrate local traditions.', example: '地元の伝統を祝う祝典をおこなった。', answered: false },
    { word: '', mean: '',translation: '「もう一度学習する」をクリックしてください。「もう一度学習する」をクリックした単語が再度表示されます。表示されない場合は、「覚えた！」を押した上で、再度「もう一度学習する」を押して下さい。', example: '', answered: false },
 ];
