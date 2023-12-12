@@ -153,8 +153,9 @@ function exportLogsToCSV() {
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
+    const customFileName = prompt("参加者名を入力してください。");
     a.href = url;
-    a.download = 'study_logs.csv';
+    a.download = `${customFileName}.csv`;
     a.click();
 }
 
