@@ -76,8 +76,6 @@ body {
     background-color: #ffaa55;
 }
 
-/* スタイル修正終了 */
-
 .info-panel {
     background-color: #fff;
     padding: 16px;
@@ -86,10 +84,23 @@ body {
 
 .timer, .clock {
     font-size: 16px;
-    color: #8c8c8c;
+    color: #ffffff;
     margin-bottom: 8px;
 }
 
 .time-display {
     font-weight: bold;
+}
+
+#export-logs {
+    background-color: transparent; /* 背景色を透明にする */
+    color: #ffffff; /* 文字色を設定 */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline; /* 下線を表示 */
+}
+
+#export-logs:hover {
+    color: #ffffff; /* ホバー時の文字色を変更 */
 }
