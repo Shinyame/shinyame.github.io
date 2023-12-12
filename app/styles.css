@@ -94,7 +94,7 @@ body {
 
 #export-logs {
     background-color: transparent; /* 背景色を透明にする */
-    color: #ffffff; /* 文字色を設定 */
+    color: #000000; /* 文字色を設定 */
     border: none;
     cursor: pointer;
     font-size: 16px;
@@ -102,5 +102,5 @@ body {
 }
 
 #export-logs:hover {
-    color: #ffffff; /* ホバー時の文字色を変更 */
+    color: #000000; /* ホバー時の文字色を変更 */
 }
