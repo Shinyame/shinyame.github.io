@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="time-container">
+        <div class="time-box" id="selected-country-box">
+            <p id="selected-country-info">Enter time in seconds:</p>
+            <input type="number" id="countdown-input" placeholder="Enter time">
+            <p id="selected-country-time"></p>
+
+            <!-- Timer Controls -->
+            <button onclick="startTimer()">Start</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

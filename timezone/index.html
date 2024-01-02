@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time in the world</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Current Time in the world</h1>
+
+    <div id="time-container">
+        <div class="time-box" id="utc-box">
+            <h2>UTC</h2>
+            <p id="utc-info">Universal Time Coordinated (UTC)</p>
+            <p id="utc-time"></p>
+        </div>
+        <div class="time-box" id="jst-box">
+            <h2>JST (Asia/Tokyo)</h2>
+            <p id="jst-info">Japan Standard Time (JST)</p>
+            <p id="jst-time"></p>
+        </div>
+        <div class="time-box" id="pst-box">
+            <h2>PST (America/Los_Angeles)</h2>
+            <p id="pst-info">Pacific Standard Time (PST)</p>
+            <p id="pst-time"></p>
+        </div>
+        <div class="time-box" id="aest-box">
+            <h2>AEST (Australia/Sydney)</h2>
+            <p id="aest-info">Australian Eastern Standard Time (AEST)</p>
+            <p id="aest-time"></p>
+        </div>
+        <div class="time-box" id="selected-country-box">
+        </div>
+    </div>
+
+    <div id="country-selector">
+        <label for="country">Select Time Zone</label>
+        <select id="country" onchange="updateSelectedCountryTime()">
+            <option value="UTC">UTC</option>
+            <option value="Asia/Tokyo">JST</option>
+            <option value="America/Los_Angeles">PST</option>
+            <option value="Australia/Sydney">AEST</option>
+            <option value="America/New_York">EST</option>
+            <option value="Europe/London">GMT</option>
+            <option value="Europe/Berlin">CET</option>
+            <option value="Asia/Shanghai">CST</option>
+            <option value="Asia/Dubai">GST</option>
+            <option value="America/Sao_Paulo">BRT</option>
+        </select>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
