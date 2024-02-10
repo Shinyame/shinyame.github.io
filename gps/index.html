@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Geolocation API Share To SNS.</title>
+</head>
+<body>
+    <script>
+    if (navigator.geolocation) { //success
+        navigator.geolocation.getCurrentPosition(
+            function (pos) {
+                var l1, l2, l3;
+                l1 = "<h1>GPS Information is below. </h1><br>"
+                l1 += "緯度:" + pos.coords.latitude;
+                l1 += "<br>" + "経度:" + pos.coords.longitude + "<br>";
+                document.write(l1);
+                l2 = "私の現在地は" + "緯度:" + pos.coords.latitude + ",";
+                l2 += "経度:" + pos.coords.longitude + "です. Posted from Web. ";
+                l3 = pos.coords.latitude + ",";
+                l3 += pos.coords.longitude;
+                var msg = '<a target="_blank" href="http://twitter.com/share?&text=' + l2 + ' https://www.google.co.jp/maps/place/' + l3 + ' + "> <h3>Twitterr</h3></a>';
+                document.write(msg);
+                var msg = '<a target="_blank" href="http://line.me/R/msg/text/?' + l2 + ' https://www.google.co.jp/maps/place/' + l3 + ' + "> <h3>Line</h3></a>';
+                document.write(msg);
+                var msg = '<a target="_blank" href="http://www.facebook.com/share.php?u=' + ' https://www.google.co.jp/maps/place/' + l3 + ' + "> <h3>Facebook</h3></a>';
+                document.write(msg);
+            },
+        function (pos) { //fail
+            var l ="<li>位置情報を有効にしてください.</li>";
+            document.getElementById("l").innerHTML = l;
+        });
+    } else { 
+        window.alert("Unsupported Browser.");
+    }
+</script>
+Now Loading... (Please wait... check your privacy setting.)
+</body>
+</html>
