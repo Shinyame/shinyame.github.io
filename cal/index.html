@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Design Calendar</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<style>
+  .calendar-container {
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .calendar {
+    width: 100%;
+  }
+  .calendar .header {
+    text-align: center;
+    padding: 10px;
+    background-color: #2196F3;
+    color: #fff;
+  }
+  .calendar .days {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .calendar .day {
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  .today {
+    background-color: #FFEB3B !important;
+  }
+  .clock-container {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    margin-top: auto;
+  }
+  .clock span {
+    display: inline-block;
+    padding: 5px;
+    background-color: #fff;
+    color: #000;
+    margin: 0 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="calendar-container">
+  <div class="calendar">
+    <div class="header">
+      <span id="prevMonth">◄</span>
+      <span id="currentMonth"></span>
+      <span id="nextMonth">►</span>
+    </div>
+    <ul class="days">
+      <li class="day">Sun</li>
+      <li class="day">Mon</li>
+      <li class="day">Tue</li>
+      <li class="day">Wed</li>
+      <li class="day">Thu</li>
+      <li class="day">Fri</li>
+      <li class="day">Sat</li>
+    </ul>
+  </div>
+
+  <div class="clock-container">
+    <span id="hours">00</span>:
+    <span id="minutes">00</span>:
+    <span id="seconds">00</span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentDate = new Date();
+
+    function renderCalendar(date) {
+      const currentDate = new Date(date);
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth();
+      
+      document.getElementById('currentMonth').innerHTML = new Date(currentYear, currentMonth).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+      const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+      const startingDay = firstDayOfMonth.getDay();
+      const endingDay = lastDayOfMonth.getDate();
+      
+      const daysList = document.querySelector('.calendar .days');
+      daysList.innerHTML = '';
+
+      const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+      for (let i = 0; i < weekDays.length; i++) {
+        const dayOfWeek = document.createElement('li');
+        dayOfWeek.classList.add('day');
+        dayOfWeek.innerText = weekDays[i];
+        daysList.appendChild(dayOfWeek);
+      }
+
+      for (let i = 0; i < startingDay; i++) {
+        const prevMonthDay = document.createElement('li');
+        prevMonthDay.classList.add('day', 'disabled');
+        prevMonthDay.innerText = new Date(currentYear, currentMonth, -i).getDate();
+        daysList.appendChild(prevMonthDay);
+      }
+
+      for (let i = 1; i <= endingDay; i++) {
+        const day = document.createElement('li');
+        day.classList.add('day');
+        day.innerText = i;
+        if (currentDate.getDate() === i && currentDate.getMonth() === currentMonth && currentDate.getFullYear() === currentYear) {
+          day.classList.add('today');
+        }
+        daysList.appendChild(day);
+      }
+    }
+
+    renderCalendar(currentDate);
+
+    document.getElementById('prevMonth').addEventListener('click', function() {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate);
+    });
+
+    document.getElementById('nextMonth').addEventListener('click', function() {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate);
+    });
+
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    setInterval(updateClock, 1000);
+  });
+</script>
+
+</body>
+</html>
