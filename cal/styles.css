@@ -1,0 +1,54 @@
+body {
+  background-color: #e0e0e0;
+  margin-top: 50px;
+}
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+.card-content {
+  padding-bottom: 10px;
+}
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  background-color: white;
+  color: black;
+  margin-bottom: 20px;
+}
+.day-name {
+  font-weight: bold;
+  padding: 8px;
+  background-color: #eceff1;
+}
+.day {
+  padding: 12px;
+  border: 1px solid #ccc;
+  min-height: 50px;
+  font-size: 14px;
+}
+.sunday { color: red; }
+.saturday { color: blue; }
+.holiday { color: red; }
+.today { background-color: #ccc; }
+
+/* Sub */
+.sub-calendars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sub-cal-card {
+  flex: 1 1 300px;
+  min-width: 300px;
+}
+
+.sub-cal-card .card-title {
+  display: block;
+  color: white;
+  background-color: #546e7a;
+  padding: 8px;
+  text-align: center;
+}
