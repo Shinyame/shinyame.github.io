@@ -10,40 +10,39 @@
 </head>
 <body>  
   <div class="container">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title" id="currentMonthTitle">Calendar</span>
-        <div id="calendar" class="calendar"></div>
-      </div>
+    <div class="sub-cal-card">
+      <h5 id="currentMonthTitle">Calendar</h5>
+      <div id="calendar" class="calendar"></div>
     </div>
 
     <div class="sub-calendars">
       <div class="sub-cal-card">
-        <span class="card-title" id="prevMonthTitle">Previous</span>
+        <h5 id="prevMonthTitle">Previous</h5>
         <div id="calendarPrev" class="calendar"></div>
       </div>
       <div class="sub-cal-card">
-        <span class="card-title" id="nextMonthTitle">Next</span>
+        <h5 id="nextMonthTitle">Next</h5>
         <div id="calendarNext" class="calendar"></div>
       </div>
     </div>
   </div>
-<div class="container">
-  <div class="row">
-  <div class="input-field col s4">
-    <input type="number" id="yearInput">
-    <label for="yearInput">Year (e.g. 2025)</label>
-  </div>
-  <div class="input-field col s4">
-    <input type="number" id="monthInput" min="1" max="12">
-    <label for="monthInput">Month (1-12)</label>
-  </div>
-  <div class="input-field col s4">
-    <button class="btn waves-effect waves-light" id="goButton">Go</button>
-  </div>
-</div>
 
-</div>
+  <div class="container">
+    <div class="row" style="margin-top: 30px;">
+      <div class="input-field col s4">
+        <input type="number" id="yearInput">
+        <label for="yearInput">Year (e.g. 2025)</label>
+      </div>
+      <div class="input-field col s4">
+        <input type="number" id="monthInput" min="1" max="12">
+        <label for="monthInput">Month (1-12)</label>
+      </div>
+      <div class="input-field col s4">
+        <button class="btn waves-effect waves-light" id="goButton">Go</button>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/japanese-holidays@1.0.10/lib/japanese-holidays.min.js"></script>
   <script src="calendar.js"></script>
 </body>
