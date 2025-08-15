@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>汎用単語学習アプリ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="card">
+      <div class="card-content">
+        <div id="timer-input">
+          <div id="timer-display">
+          <input type="file" id="jsonLoader" accept=".json" style="margin-left:10px;"></div><br>
+          <h1 class="word" id="word">単語</h1>
+          <p class="mean" id="mean">意味: </p>
+          <p class="example" id="example" style="display:none;">例: </p>
+          <button id="reveal-example-button" class="reveal-button">例を見る</button><br>
+        </div>
+        <div class="card-actions">
+          <button class="next-button" id="next-button">覚えた！</button>
+          <button class="skip-button" id="skip-button">もう一度学習する（スキップ）</button>
+        </div>
+      </div>
+    </div>
+    <div class="info-panel">
+      <div id="clear-screen" style="display: none">
+        <h2>全問回答済みです。</h2>
+        <button id="reset-answered-button"><input type="button" value="リセットする" onclick="window.location.reload();" /></button>
+      </div>
+      <button id="export-logs">参加者名の入力</button>
+      <div class="timer">学習所要時間: <span class="time-display" id="result1"></span></div>
+      <div class="timer">スキップ所要時間: <span class="time-display" id="result2"></span></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

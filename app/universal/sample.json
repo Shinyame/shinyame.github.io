@@ -1,0 +1,12 @@
+[
+    { "word": "Apple", "mean": "リンゴ", "example": "An apple a day keeps the doctor away. (1日1個のリンゴは医者を遠ざける)", "answered": false },
+    { "word": "Innovation", "mean": "革新、技術革新", "example": "That company is known for its technological innovation. (その会社は技術革新で知られている)", "answered": false },
+    { "word": "Curiosity", "mean": "好奇心", "example": "Curiosity is the engine of discovery. (好奇心は発見の原動力だ)", "answered": false },
+    { "word": "Persevere", "mean": "やり抜く、耐える", "example": "She persevered through difficult times to achieve her goal. (彼女は目標を達成するために困難な時期を耐え抜いた)", "answered": false },
+    { "word": "Collaboration", "mean": "協力、協業", "example": "Collaboration between the two teams led to great success. (2つのチームの協力が大きな成功につながった)", "answered": false },
+    { "word": "Empathy", "mean": "共感、感情移入", "example": "Having empathy for others is an important quality. (他者に共感することは重要な資質だ)", "answered": false },
+    { "word": "Integrity", "mean": "誠実、高潔", "example": "He is a man of great integrity. (彼は非常に誠実な人物だ)", "answered": false },
+    { "word": "Abundant", "mean": "豊富な、たくさんの", "example": "The country has an abundant supply of natural resources. (その国には豊富な天然資源がある)", "answered": false },
+    { "word": "Gravity", "mean": "重力", "example": "Isaac Newton is famous for his law of universal gravitation. (アイザック・ニュートンは万有引力の法則で有名だ)", "answered": false },
+    { "word": "Democracy", "mean": "民主主義", "example": "Ancient Greece is considered the birthplace of democracy. (古代ギリシャは民主主義の発祥の地と考えられている)", "answered": false }
+]
