@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Oracle Cloud編</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .step-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .step-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+    }
+    .step-card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #F80000; /* Oracle Red */
+    }
+    .step-card p {
+      flex: 1;
+      font-size: 15px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .step-card a {
+      margin-bottom: 12px;
+      color: #F80000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .step-card a:hover {
+      text-decoration: underline;
+    }
+    .step-card button {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #F80000; /* Oracle Red */
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .step-card button.done {
+      background: #28a745;
+    }
+    .step-card button:hover {
+      opacity: 0.9;
+    }
+    @media (max-width: 600px) {
+      .step-card {
+        padding: 16px;
+      }
+      .step-card h2 {
+        font-size: 16px;
+      }
+      .step-card p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Oracle Cloud編</h1>
+    <p>クラウド学習を計画的・ステップ毎に進めましょう！</p>
+
+    <div class="step-container" id="steps"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
