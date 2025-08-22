@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Validator</title>
+  <link rel="stylesheet" href="styles.css">
+<style>
+  #jsonPreviewWrapper {
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+  }
+  #jsonPreview {
+    display: flex;
+    background: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 14px;
+    max-height: 400px;
+    overflow: hidden; /* ← 全体スクロールを抑止 */
+  }
+  #lineNumbers {
+    background: #eee;
+    color: #666;
+    padding: 10px 5px;
+    text-align: right;
+    user-select: none;
+    border-right: 1px solid #ccc;
+    overflow: hidden; /* ← スクロールは同期対象外 */
+  }
+  #jsonContent {
+    padding: 10px;
+    white-space: pre-wrap;
+    flex: 1;
+    overflow-y: scroll; /* ← 右側だけ縦スクロール */
+    max-height: 400px;
+  }
+  /* JSONシンタックスハイライト */
+  .key { color: brown; }
+  .string { color: green; }
+  .number { color: blue; }
+  .boolean { color: purple; }
+  .null { color: gray; }
+
+  #togglePreview, #copyButton {
+    margin-top: 8px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  #togglePreview:hover, #copyButton:hover {
+    background: #0056b3;
+  }
+  #copyButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>単語用JSON 構文確認</h1>
+    <p>任意の <code>〇〇〇〇.json</code> に対し、構文ミスを確認できます。</p>
+
+    <!-- JSONプレビューエリア -->
+    <div id="jsonPreviewWrapper">
+      <div id="jsonPreview">
+        <div id="lineNumbers"></div>
+        <pre id="jsonContent"></pre>
+      </div>
+      <button id="copyButton" style="display:none;">コピー</button>
+      <button id="togglePreview" style="display:none;">全文表示</button>
+    </div>
+
+    <div>
+      <input type="file" id="fileInput" accept=".json" />
+      <button id="checkButton">確認</button>
+    </div>
+
+    <div id="resultBox" class="chat-box" style="margin-top: 20px; height: auto; min-height: 200px;">
+      <div class="message system">ここに確認結果が表示されます</div>
+    </div>
+
+  </div>
+  <script src="validate.js"></script>
+</body>
+</html>
