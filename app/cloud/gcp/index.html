@@ -71,6 +71,41 @@
         font-size: 14px;
       }
     }
+
+    /* カード全体のレイアウト */
+    .cloud-grid, .step-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* カードの基本デザイン */
+    .cloud-card, .step-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+
+    .cloud-card:hover, .step-card:hover {
+      transform: translateY(-3px);
+    }
+
+    /* --- レスポンシブ対応 --- */
+    @media (max-width: 768px) {
+      /* スマホ表示ではカードを縦1列に */
+      .cloud-grid, .step-container {
+        grid-template-columns: 1fr;
+      }
+      .cloud-card, .step-card {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
