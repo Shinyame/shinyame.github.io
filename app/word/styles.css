@@ -94,12 +94,30 @@ p.intro {
   text-decoration: underline;
 }
 
-@media (max-width: 1280px) {
-  .grid {
-    grid-template-columns: 1fr;
+/* --- スマホ・タブレット対応 --- */
+@media (max-width: 900px) {
+  .cloud-grid {
+    grid-template-columns: 1fr;   /* 縦1列 */
     width: 100%;
     max-width: none;
     margin: 0 auto;
   }
 }
 
+@media (max-width: 480px) {
+  .cloud-grid {
+    grid-template-columns: 1fr;   /* 縦1列 */
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cloud-card {
+    max-width: 100%;
+    padding: 16px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  p.intro {
+    font-size: 14px;
+  }
+}
