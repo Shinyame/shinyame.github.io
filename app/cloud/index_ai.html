@@ -31,16 +31,15 @@
     }
 
     /* カードグリッド */
-    .cloud-grid, .ai-grid {
+    .cloud-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
 
-    /* 共通カードデザイン */
-    .cloud-card, .ai-card {
-      background: white;
+    /* カードデザイン */
+    .cloud-card {
+      background: rgb(255, 255, 255);
       border-radius: 14px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 20px;
@@ -48,15 +47,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
     }
-
     .cloud-card:hover, .ai-card:hover {
       transform: translateY(-5px);
     }
 
     .cloud-card h2, .ai-card h2 {
-      font-size: 18px;
+      font-size: 32px;
       margin: 15px 0 10px;
     }
 
@@ -77,11 +74,7 @@
     }
 
     /* クラウド別カラー */
-    .azure a { background: #0078D4; }
-    .aws a { background: #FF9900; }
-    .gcp a { background: #4285F4; }
-    .oci a { background: #F80000; }
-    .sakura a { background: #E4007F; }
+    .portal a { background: #75afdb; }
 
     /* AIサービス別カラー */
     .chatgpt a { background: #10a37f; }
@@ -104,15 +97,26 @@
       text-decoration: underline;
     }
 
-    /* --- スマホ対応 --- */
-    @media (max-width: 1280px) {
-      .cloud-grid, .ai-grid {
-        grid-template-columns: 1fr; 
+    @media (max-width: 480px) {
+      .cloud-grid {
+        grid-template-columns: 1fr;   /* 縦1列 */
         width: 100%;
-        max-width: none;
         margin: 0 auto;
       }
+      .cloud-card {
+        width: auto;
+        max-width: 100%;
+        padding: auto;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      p.intro {
+        font-size: 14px;
+      }
     }
+
+
 
   </style>
 </head>
@@ -120,51 +124,30 @@
   <div class="container">
     <h1>クラウド学習ポータル + AI活用</h1>
     <p class="intro">
-      このポータルでは、Azure・AWS・Google Cloud・Oracle Cloud・さくらのクラウドの学習ステップをまとめています。<br>
-      さらに、無料で使える大手生成AIサービスを活用して、必要に応じて学習を円滑に進めましょう！
+      本サイトは大手クラウドの学習ポータルです。<br>
+      無料で使える大手生成AIサービスも活用して、<br>必要に応じて学習を円滑に進めましょう！
     </p>
 
     <!-- クラウド学習カード -->
     <div class="cloud-grid">
-      <div class="cloud-card azure">
-        <h2>Microsoft Azure</h2>
-        <div class="progress" id="progress-azure">進捗: 読み込み中...</div>
-        <a href="azure/index.html">▶ 学習ページへ</a>
-      </div>
-      <div class="cloud-card aws">
-        <h2>Amazon Web Services</h2>
-        <div class="progress" id="progress-aws">進捗: 読み込み中...</div>
-        <a href="aws/index.html">▶ 学習ページへ</a>
-      </div>
-      <div class="cloud-card gcp">
-        <h2>Google Cloud</h2>
-        <div class="progress" id="progress-gcp">進捗: 読み込み中...</div>
-        <a href="gcp/index.html">▶ 学習ページへ</a>
-      </div>
-      <div class="cloud-card oci">
-        <h2>Oracle Cloud</h2>
-        <div class="progress" id="progress-oci">進捗: 読み込み中...</div>
-        <a href="oci/index.html">▶ 学習ページへ</a>
-      </div>
-      <div class="cloud-card sakura">
-        <h2>さくらのクラウド</h2>
-        <div class="progress" id="progress-sakura">進捗: 読み込み中...</div>
-        <a href="sakura/index.html">▶ 学習ページへ</a>
+      <div class="cloud-card portal">
+        <h2>クラウド学習ポータル</h2>
+        <p>大手クラウドサービスの理解を深めましょう。</p>
+        <a href="index.html">▶ 学習ページへ</a>
       </div>
     </div>
-
     <!-- 生成AIサービスリンク集 -->
-    <h2 style="margin-top:40px;">無料で使える生成AIサービス</h2>
-    <p class="intro">以下のサービスを利用して「学びたい分野・機能のサンプルコードを生成してみよう！」</p>
+    <h2 style="margin-top:60px;">無料で使える生成AIサービス</h2>
+    <p class="intro">以下のサービスを利用して<br>学びたい分野・機能のサンプルコードを生成してみよう！</p>
     <div class="ai-grid">
       <div class="ai-card chatgpt">
         <h2>ChatGPT (OpenAI)</h2>
-        <p>最も有名な生成AI。対話形式で学習用データを作成できます。</p>
+        <p>有名な生成AI。対話形式で学習用データを作成できる。</p>
         <a href="https://chat.openai.com/" target="_blank">▶ 使ってみる</a>
       </div>
       <div class="ai-card gemini">
         <h2>Gemini (Google)</h2>
-        <p>Googleが提供する生成AI。クラウド学習との親和性も高いです。</p>
+        <p>Google提供の生成AI。クラウドとの親和性も高い。</p>
         <a href="https://gemini.google.com/" target="_blank">▶ 使ってみる</a>
       </div>
       <div class="ai-card claude">
