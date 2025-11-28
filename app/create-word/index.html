@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>単語帳 作成ツール</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>単語帳 作成ツール</h1>
+      <p class="lead">単語(word)、意味(mean)、実例(example) を入力して JSON ファイルをダウンロードできます。</p>
+    </header>
+
+    <main>
+      <section class="panel form-panel">
+        <h2>エントリを追加</h2>
+        <form id="entryForm" autocomplete="off">
+          <div class="row">
+            <label for="wordInput">単語 (word)</label>
+            <input id="wordInput" name="word" required />
+          </div>
+          <div class="row">
+            <label for="meanInput">意味 (mean)</label>
+            <input id="meanInput" name="mean" required />
+          </div>
+          <div class="row">
+            <label for="exampleInput">実例 (example) — <small>10文字以上</small></label>
+            <textarea id="exampleInput" name="example" rows="4" required></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="addBtn">追加</button>
+            <button type="button" id="clearForm">クリア</button>
+          </div>
+          <div id="formMessage" class="message" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="panel io-panel">
+        <h2>読み込み / 出力</h2>
+        <div class="row file-row">
+          <label for="fileInput">既存 JSON を読み込む（words.json）</label>
+          <input id="fileInput" type="file" accept=".json,application/json" />
+          <button id="loadBtn" class="small">読み込み</button>
+        </div>
+        <div id="loadMessage" class="message" aria-live="polite"></div>
+
+        <div class="row export-row">
+          <button id="downloadBtn">words.json をダウンロード</button>
+          <button id="copyBtn">JSON コピー</button>
+          <button id="clearAllBtn" class="danger">全件削除</button>
+        </div>
+      </section>
+
+      <section class="panel list-panel">
+        <h2>現在のエントリ（<span id="count">0</span> 件）</h2>
+        <div id="listContainer" class="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- 編集用モーダル -->
+  <div id="editModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">エントリ編集</h3>
+      <div class="row">
+        <label for="editWord">単語 (word)</label>
+        <input id="editWord" />
+      </div>
+      <div class="row">
+        <label for="editMean">意味 (mean)</label>
+        <input id="editMean" />
+      </div>
+      <div class="row">
+        <label for="editExample">実例 (example) — <small>10文字以上</small></label>
+        <textarea id="editExample" rows="4"></textarea>
+      </div>
+
+      <div id="editMsg" class="message" aria-live="polite"></div>
+
+      <div class="modal-actions">
+        <button id="saveEditBtn">保存</button>
+        <button id="cancelEditBtn" class="danger">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
