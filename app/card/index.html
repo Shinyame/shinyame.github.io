@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -168,7 +169,7 @@ function calc(){
 function cspTrainer(p,r){
   const t=[
     ["1位",15,0],["2位",12,1],["3-4位",10,1],
-    ["5-8位",8,2],["9-16位",6,3],["17-32位",5,3]
+    ["5-8位",8,2],["9-16位",6,3],["17-32位",5,3],["33-48位",4,3]
   ]
   let h="<div class='csp-box'><b>トレーナーズリーグ CSP</b>"
   t.forEach(e=>{
@@ -180,14 +181,17 @@ function cspTrainer(p,r){
 }
 
 function cspCity(p,r){
-  return `
-  <div class="csp-box">
-    <b>シティリーグ CSP（目安）</b>
-    <p>1位 : 50 CSP</p>
-    <p>2位 : 45 CSP</p>
-    <p>TOP4 : 40 CSP</p>
-    <p>TOP8 : 30 CSP</p>
-  </div>`
+  const t=[
+    ["1位",100,0],["2位",75,1],["3-4位",50,1],
+    ["5-8位",25,2],["9-16位",15,3]
+  ]
+  let h="<div class='csp-box'><b>シティリーグ CSP</b>"
+  t.forEach(e=>{
+    if(p>=Math.pow(2,e[2]+1)){
+      h+=`<p>${e[0]} : ${e[1]} CSP（${r-e[2]}勝）</p>`
+    }
+  })
+  return h+"</div>"
 }
 
 function saveParams(){
