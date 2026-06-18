@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>配色＆コントラストチェッカー</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="card">
+  <h2>Contrast & Palette</h2>
+  
+  <div class="color-picker-wrapper">
+    <input type="color" id="baseColor" value="#3498db">
+  </div>
+
+  <div id="preview" class="preview-box">
+    視認性チェック
+  </div>
+  
+  <div class="ratio-text" id="ratioText">比率: 1.00 : 1</div>
+  <div class="badges">
+    <div id="badgeAA" class="badge">AA (4.5:1)</div>
+    <div id="badgeAAA" class="badge">AAA (7.0:1)</div>
+  </div>
+
+  <div class="palette-section">
+    <div class="section-title">類似色・補色パターンの提案</div>
+    <div class="palette-grid" id="paletteGrid"></div>
+  </div>
+
+  <div class="random-section">
+    <div class="section-title">ランダム配色ジェネレーター</div>
+    <button id="btnRandom" class="btn-random">🎲 基準を満たす色をランダム生成</button>
+    <div class="random-grid" id="randomGrid"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+</body>
+</html>
