@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Notes 配色サジェスト</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="card">
+  <h2>Sticky Note Color Suggester</h2>
+  <p class="subtitle">伝えたい状況に合わせて最適な文字色を提案し、画像として出力します。</p>
+  
+  <textarea id="noteInput" class="note-input" rows="2" placeholder="付箋に書き込むテキストを入力...">お疲れ様です！
+確認をお願いします。</textarea>
+
+  <div class="sticky-note-selector" id="stickyNoteSelector">
+    </div>
+
+  <div class="selected-info">
+    現在のSticky Notes: <span id="currentNoteName" class="highlight">レモンイエロー</span>
+  </div>
+
+  <div class="situation-grid" id="situationGrid">
+    </div>
+</div>
+
+<div id="toast"></div>
+
+</body>
+</html>
