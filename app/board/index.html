@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>付箋キャンバス - 議論ボード</title>
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ファイル操作エリア（右上に配置） -->
+    <div id="file-controls">
+        <button id="save-btn" title="現在のボードを保存">💾 保存 (JSON)</button>
+        <label id="load-btn" for="load-input" title="保存したボードを読み込み">📁 読込</label>
+        <input type="file" id="load-input" accept=".json" style="display:none">
+    </div>
+
+    <!-- お題表示エリア -->
+    <div id="theme-container">
+        <input type="text" id="theme-input" placeholder="ここにお題を入力 (Enterで確定)" />
+        <h1 id="theme-display" title="クリックして編集"></h1>
+    </div>
+
+    <!-- キャンバス -->
+    <div id="canvas">
+        <div id="empty-guide">下からテキストを入力して<br>付箋を貼ってみましょう ✨</div>
+    </div>
+
+    <!-- 下部 UIパネル -->
+    <div id="ui-panel">
+        <textarea id="note-input" placeholder="アイデアや意見を入力してください..."></textarea>
+        
+        <div class="toolbar">
+            <!-- 文字サイズピッカー -->
+            <div class="size-picker">
+                <button class="size-btn" data-size="14px">小</button>
+                <button class="size-btn active" data-size="18px">中</button>
+                <button class="size-btn" data-size="28px">大</button>
+                <button class="size-btn" data-size="36px" style="font-weight:800;">特大</button>
+            </div>
+
+            <!-- カラーピッカー -->
+            <div id="color-picker">
+                <button class="color-btn active" data-color="var(--sticky-yellow)" style="background: var(--sticky-yellow);"></button>
+                <button class="color-btn" data-color="var(--sticky-pink)" style="background: var(--sticky-pink);"></button>
+                <button class="color-btn" data-color="var(--sticky-blue)" style="background: var(--sticky-blue);"></button>
+                <button class="color-btn" data-color="var(--sticky-green)" style="background: var(--sticky-green);"></button>
+                <button class="color-btn" data-color="var(--sticky-purple)" style="background: var(--sticky-purple);"></button>
+            </div>
+            
+            <button id="add-btn">付箋を貼る</button>
+        </div>
+    </div>
+
+    <!-- JSファイルの読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>
