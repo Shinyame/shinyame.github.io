@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Researchmap JSONL Sanitizer</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 { font-size: 1.5rem; margin-top: 0; color: #0056b3; }
+    p { font-size: 0.9rem; color: #666; line-height: 1.5; }
+    .alert { background: #e8f4fd; border-left: 4px solid #0056b3; padding: 10px; margin-bottom: 1.5rem; font-size: 0.85rem;}
+    input[type="file"] { display: block; margin-bottom: 1.5rem; }
+    button {
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover { background-color: #004494; }
+    button:disabled { background-color: #ccc; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Researchmap JSONL Sanitizer</h1>
+    <div class="alert">
+      <strong>本ツールは、別プロジェクトでの事前サニタイズ処理用ツールです。</strong><br>
+      このツールはブラウザ上でローカルに動作します。アップロードされたデータがインターネット上のサーバーに送信されることはありません。
+    </div>
+    <p>Researchmapからエクスポートした生の <code>.jsonl</code> ファイルを選択してください。<br>
+    連絡先情報（<code>contact_point</code>等）を自動的に削除したファイルを生成します。<br>
+    最終的に、<a href="https://github.com/Shinyame/researchmap/">こちらのプロジェクト配下</a>のraw_data/配下にresearchmap.jsonlファイルを配置することで、最新版がデプロイされます。</p>
+
+    <input type="file" id="fileInput" accept=".jsonl">
+    <button id="processBtn" disabled>変換してダウンロード</button>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const processBtn = document.getElementById('processBtn');
+
+    fileInput.addEventListener('change', () => {
+      processBtn.disabled = fileInput.files.length === 0;
+    });
+
+    processBtn.addEventListener('click', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target.result;
+        const lines = text.split('\n');
+        const processedLines = [];
+
+        lines.forEach(line => {
+          if (!line.trim()) return;
+          try {
+            const record = JSON.parse(line);
+            
+            // contact_pointの削除処理
+            if (record.merge) {
+              if (record.merge.contact_point) delete record.merge.contact_point;
+              if (record.merge.display_contact_point) delete record.merge.display_contact_point;
+            }
+            
+            processedLines.push(JSON.stringify(record));
+          } catch (err) {
+            console.error('JSON parse error on line:', line, err);
+          }
+        });
+
+        // サニタイズ済みのJSONLを生成してダウンロード
+        const outputText = processedLines.join('\n') + '\n';
+        const blob = new Blob([outputText], { type: 'application/jsonl' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        // リポジトリ配置用のファイル名として保存
+        a.download = 'researchmap.jsonl';
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>
