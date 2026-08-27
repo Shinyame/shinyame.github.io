@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marp Slide Presenter</title>
+  <style>
+    /* UI全体のスタイル */
+    body { margin: 0; font-family: sans-serif; background: #2c2c2c; display: flex; flex-direction: column; height: 100vh; }
+    #controls { padding: 12px 20px; background: #1a1a1a; color: white; display: flex; gap: 16px; align-items: center; }
+    #controls input { color: white; }
+    #controls span { font-size: 0.9em; color: #aaa; margin-left: auto; }
+    
+    /* スライド表示領域 */
+    #presentation-area { flex: 1; display: flex; justify-content: center; align-items: center; overflow: hidden; background: #000; position: relative; }
+    #presentation-area:fullscreen { background: #000; }
+    
+    /* プレゼン時のスライド中央配置の調整 */
+    #presentation-area section {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+  </style>
+  <!-- Marpが生成するCSSを適用するためのタグ -->
+  <style id="marp-styles"></style>
+</head>
+<body>
+  <div id="controls">
+    <input type="file" id="file-input" accept=".md" />
+    <button id="fullscreen-btn">フルスクリーン</button>
+    <span>操作: 左右矢印キー または スペース</span>
+  </div>
+  
+  <div id="presentation-area">
+    <!-- ここにMarpのスライドが注入されます -->
+  </div>
+  
+  <!-- CDNから直接ライブラリを読み込む (type="module"が必須) -->
+  <script type="module">
+    // esm.sh 経由でMarp Coreをインポート
+    import { Marp } from 'https://esm.sh/@marp-team/marp-core@3';
+
+    const marp = new Marp();
+    let slides = [];
+    let currentIndex = 0;
+
+    const fileInput = document.getElementById('file-input');
+    const presentationArea = document.getElementById('presentation-area');
+    const styleArea = document.getElementById('marp-styles');
+
+    // ファイル読み込み処理
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const markdown = event.target.result;
+        
+        // MarpでMarkdownをパース
+        const { html, css } = marp.render(markdown);
+
+        // CSSとHTMLをDOMに反映
+        styleArea.textContent = css;
+        presentationArea.innerHTML = html;
+
+        // 生成されたセクション（スライド）を取得して初期化
+        slides = Array.from(presentationArea.querySelectorAll('section'));
+        currentIndex = 0;
+        updateSlideVisibility();
+      };
+      reader.readAsText(file);
+    });
+
+    // スライドの表示/非表示を切り替え
+    function updateSlideVisibility() {
+      slides.forEach((slide, index) => {
+        slide.style.display = index === currentIndex ? 'block' : 'none';
+      });
+    }
+
+    // キーボード操作（矢印キー・スペース）
+    window.addEventListener('keydown', (e) => {
+      if (slides.length === 0) return;
+      
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        if (currentIndex < slides.length - 1) currentIndex++;
+        updateSlideVisibility();
+      } else if (e.key === 'ArrowLeft') {
+        if (currentIndex > 0) currentIndex--;
+        updateSlideVisibility();
+      }
+    });
+
+    // フルスクリーン操作
+    document.getElementById('fullscreen-btn').addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        presentationArea.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
