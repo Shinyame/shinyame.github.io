@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    touch-action: manipulation;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 600px; /* タブレットで見やすいように拡張 */
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #000;
+    padding: env(safe-area-inset-top, 15px) clamp(10px, 4vw, 30px) env(safe-area-inset-bottom, 15px);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.toolbar button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: clamp(8px, 1.5vh, 12px) clamp(12px, 3vw, 20px);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: clamp(12px, 3vw, 14px);
+    font-weight: bold;
+}
+
+#display-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: clamp(10px, 4vw, 20px);
+    margin-bottom: clamp(5px, 2vh, 15px);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#display {
+    font-size: clamp(50px, 16vw, 100px); 
+    font-weight: 300;
+    word-break: break-all;
+    text-align: right;
+    line-height: 1;
+}
+
+.theme-default { background-color: transparent; color: white; }
+.theme-retro { background-color: #9ea78d; color: #111; font-family: 'Courier New', Courier, monospace; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); }
+.theme-neon { background-color: #111; color: #0f0; text-shadow: 0 0 15px #0f0; border: 2px solid #0f0; }
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(10px, 3.5vw, 20px);
+    padding-bottom: clamp(10px, 3vh, 30px);
+}
+
+.btn {
+    border: none;
+    border-radius: 50%;
+    font-size: clamp(24px, 7vw, 40px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    transition: filter 0.1s;
+    width: 100%;
+}
+
+.btn:active { filter: brightness(1.5); }
+.btn.zero {
+    grid-column: span 2;
+    border-radius: 100px;
+    aspect-ratio: auto;
+    justify-content: flex-start;
+    padding-left: clamp(25px, 8vw, 45px);
+}
+
+.btn-dark { background-color: #333333; color: white; }
+.btn-light { background-color: #A5A5A5; color: black; }
+.btn-orange { background-color: #FF9F0A; color: white; }
+
+#history-modal {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(28, 28, 30, 0.98);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    padding: env(safe-area-inset-top, 20px) clamp(15px, 5vw, 30px) env(safe-area-inset-bottom, 20px);
+}
+#history-modal.hidden { display: none; }
+.history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-top: 10px; }
+.history-header button { background-color: #FF9F0A; color: white; border: none; padding: 8px 16px; border-radius: 15px; font-weight: bold; }
+#history-list { list-style: none; overflow-y: auto; flex: 1; }
+#history-list li { font-size: clamp(20px, 6vw, 32px); border-bottom: 1px solid #444; padding: 15px 0; text-align: right; }
+.history-eq { font-size: clamp(14px, 4vw, 20px); color: #aaa; margin-bottom: 5px; }
+
+/* ========================================================
+   レスポンシブ拡張: 高さの低い画面（スマホ横持ち等）対策
+======================================================== */
+@media (orientation: landscape) and (max-height: 500px) {
+    .calculator { padding: env(safe-area-inset-top, 5px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 5px) env(safe-area-inset-left, 20px); }
+    #display-container { padding: 5px 20px; margin-bottom: 5px; }
+    #display { font-size: clamp(30px, 12vh, 60px); }
+    .keypad { gap: 5px; padding-bottom: 5px; }
+    /* 縦にはみ出さないよう円形ではなくカプセル型に潰す */
+    .btn { aspect-ratio: auto; height: 13vh; border-radius: 50px; font-size: 20px; }
+    .btn.zero { padding-left: 25px; }
+}

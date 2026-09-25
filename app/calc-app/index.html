@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>iPhone風 Web電卓</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- PWA対応 / アプリ化の設定 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="電卓">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+</head>
+<body>
+    <div class="calculator">
+        <div class="toolbar">
+            <button id="fullscreen-btn">全画面切替</button>
+            <button id="theme-btn">デザイン変更</button>
+            <button id="history-btn">履歴確認</button>
+        </div>
+        
+        <div id="display-container" class="theme-default">
+            <div id="display">0</div>
+        </div>
+
+        <div class="keypad">
+            <button class="btn btn-light" data-action="clear">AC</button>
+            <button class="btn btn-light" data-action="sign">±</button>
+            <button class="btn btn-light" data-action="percent">%</button>
+            <button class="btn btn-orange" data-action="operator" data-value="÷">÷</button>
+
+            <button class="btn btn-dark" data-value="7">7</button>
+            <button class="btn btn-dark" data-value="8">8</button>
+            <button class="btn btn-dark" data-value="9">9</button>
+            <button class="btn btn-orange" data-action="operator" data-value="×">×</button>
+
+            <button class="btn btn-dark" data-value="4">4</button>
+            <button class="btn btn-dark" data-value="5">5</button>
+            <button class="btn btn-dark" data-value="6">6</button>
+            <button class="btn btn-orange" data-action="operator" data-value="-">-</button>
+
+            <button class="btn btn-dark" data-value="1">1</button>
+            <button class="btn btn-dark" data-value="2">2</button>
+            <button class="btn btn-dark" data-value="3">3</button>
+            <button class="btn btn-orange" data-action="operator" data-value="+">+</button>
+
+            <button class="btn btn-dark zero" data-value="0">0</button>
+            <button class="btn btn-dark" data-value=".">.</button>
+            <button class="btn btn-orange" data-action="calculate">=</button>
+        </div>
+
+        <div id="history-modal" class="hidden">
+            <div class="history-header">
+                <h2>計算履歴</h2>
+                <button id="close-history">閉じる</button>
+            </div>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
