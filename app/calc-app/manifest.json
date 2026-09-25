@@ -1,7 +1,7 @@
 {
   "name": "iPhone風 Web電卓",
   "short_name": "電卓",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",

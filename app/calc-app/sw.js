@@ -1,41 +1,52 @@
-const CACHE_NAME = 'calc-pwa-v1';
-const urlsToCache = [
-  './',
-  './index.html',
-  './style.css',
-  './script.js',
-  './manifest.json'
+const CACHE_NAME = "calc-pwa-v2";
+const URLS_TO_CACHE = [
+    "./",
+    "./index.html",
+    "./style.css",
+    "./script.js",
+    "./manifest.json"
 ];
 
-// インストール時にファイルをキャッシュ
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
-  );
+self.addEventListener("install", event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(URLS_TO_CACHE))
+            .then(() => self.skipWaiting())
+    );
 });
 
-// ネットワークリクエストをキャッシュでインターセプト
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+self.addEventListener("activate", event => {
+    event.waitUntil(
+        caches.keys().then(names =>
+            Promise.all(
+                names
+                    .filter(name => name !== CACHE_NAME)
+                    .map(name => caches.delete(name))
+            )
+        ).then(() => self.clients.claim())
+    );
 });
 
-// 古いキャッシュを削除して更新
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
+self.addEventListener("fetch", event => {
+    if (event.request.method !== "GET") {
+        return;
+    }
+
+    event.respondWith(
+        caches.match(event.request).then(cached => {
+            if (cached) {
+                return cached;
+            }
+
+            return fetch(event.request).then(response => {
+                if (!response || response.status !== 200 || response.type !== "basic") {
+                    return response;
+                }
+
+                const copy = response.clone();
+                caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+                return response;
+            });
         })
-      );
-    })
-  );
+    );
 });
