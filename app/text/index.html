@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Text Converter | 文字変換ツール</title>
+  
+  <!-- 外部CSSの読み込み -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="head">
+      <div class="brand">Text Converter<small>全角・半角・かな・漢字・ローマ字変換</small></div>
+      <div class="head-actions">
+        <button class="btn secondary sm" id="fullscreen">全画面</button>
+        <button class="btn secondary sm" id="historyBtn">履歴</button>
+        <span class="badge">UTILITY</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="panel intro">
+        <h1>入力した文字を、リアルタイムに変換。</h1>
+        <p class="muted">
+          日本語の文章や氏名を入力すると、全角・半角、ひらがな・カタカナ、ローマ字などの結果を同時に確認できます。
+          漢字は日本語の文脈を解析して読みを推定し、氏名はクレジットカード向けの半角英大文字表記でも確認できます。
+        </p>
+        <textarea id="input" spellcheck="false">山田 太郎</textarea>
+        <div class="actions">
+          <button class="btn secondary" id="sample" type="button">サンプル</button>
+          <button class="btn secondary" id="clear" type="button">クリア</button>
+          <button class="btn primary" id="loadRomaji" type="button">漢字読み機能を準備</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong id="chars">0</strong><span class="muted">文字数</span></div>
+          <div class="stat"><strong id="jp">0</strong><span class="muted">日本語文字</span></div>
+          <div class="stat"><strong id="bytes">0</strong><span class="muted">UTF-8 bytes</span></div>
+        </div>
+      </div>
+
+      <aside class="panel options">
+        <h2>変換設定</h2>
+        <div class="option">
+          <label for="romajiCase">ローマ字表記</label>
+          <select id="romajiCase">
+            <option value="lower">lowercase（nihongo）</option>
+            <option value="upper">UPPERCASE（NIHONGO）</option>
+          </select>
+        </div>
+        <div class="option">
+          <label for="spaceMode">ローマ字の区切り</label>
+          <select id="spaceMode">
+            <option value="keep">元の空白を維持</option>
+            <option value="word">語間に空白</option>
+          </select>
+        </div>
+        <div class="option">
+          <div class="status" id="dictStatus"><i></i><span>漢字読み辞書：未準備</span></div>
+        </div>
+        <p class="muted">漢字→ローマ字は形態素解析を利用するため、初回だけ辞書の読み込みがあります。</p>
+      </aside>
+    </section>
+
+    <section class="results">
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">全角化</span><span class="kind">FULLWIDTH</span></div>
+        <div class="result-body"><div class="output" id="full"></div><div class="result-foot"><span class="count" id="fullCount"></span><button class="copy" data-target="full">コピー</button></div></div>
+      </article>
+
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">半角化</span><span class="kind">HALFWIDTH</span></div>
+        <div class="result-body"><div class="output" id="half"></div><div class="result-foot"><span class="count" id="halfCount"></span><button class="copy" data-target="half">コピー</button></div></div>
+      </article>
+
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">ひらがな</span><span class="kind">HIRAGANA</span></div>
+        <div class="result-body"><div class="output" id="hira"></div><div class="result-foot"><span class="count" id="hiraCount"></span><button class="copy" data-target="hira">コピー</button></div></div>
+      </article>
+
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">カタカナ</span><span class="kind">KATAKANA</span></div>
+        <div class="result-body"><div class="output" id="kata"></div><div class="result-foot"><span class="count" id="kataCount"></span><button class="copy" data-target="kata">コピー</button></div></div>
+      </article>
+
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">通常のローマ字</span><span class="kind">ROMAJI</span></div>
+        <div class="result-body"><div class="output" id="romaji"></div><div class="result-foot"><span class="count" id="romajiCount"></span><button class="copy" data-target="romaji">コピー</button></div></div>
+      </article>
+
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">クレジットカード向け</span><span class="kind">CARD NAME</span></div>
+        <div class="result-body"><div class="output" id="cardRomaji"></div><div class="result-foot"><span class="count" id="cardRomajiCount"></span><button class="copy" data-target="cardRomaji">コピー</button></div></div>
+      </article>
+
+      <article class="panel result">
+        <div class="result-head"><span class="result-title">変換前後の差分</span><span class="kind">COMPARE</span></div>
+        <div class="result-body"><div class="output" id="compare"></div><div class="result-foot"><span class="count">入力と変換結果の確認用</span><button class="copy" data-target="compare">コピー</button></div></div>
+      </article>
+    </section>
+
+    <section class="panel note">
+      <strong>使い方：</strong>入力欄に文章を入力すると、各結果が自動更新されます。全角・半角は英数字・記号に加えて半角カタカナも扱い、ひらがな・カタカナは日本語部分を変換します。漢字のローマ字変換は読み辞書の準備後に利用できます。
+    </section>
+  </main>
+
+  <!-- 履歴モーダル -->
+  <div id="historyModal" class="modal hidden">
+    <div class="modal-content panel">
+      <div class="modal-header">
+        <h2>変換履歴</h2>
+        <div class="modal-btns">
+          <button id="clearHistory" class="btn secondary sm">削除</button>
+          <button id="closeHistory" class="btn primary sm">閉じる</button>
+        </div>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <footer>
+    Client-side utility. 漢字読み解析には Kuromoji.js、かな→ローマ字変換には WanaKana を利用します。
+  </footer>
+
+  <!-- 外部ライブラリの読み込み -->
+  <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/wanakana@5.3.1/wanakana.min.js"></script>
+  
+  <!-- 分割したJavaScriptファイルの読み込み -->
+  <script src="script.js"></script>
+</body>
+</html>
